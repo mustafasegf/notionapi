@@ -66,3 +66,12 @@ type Cursor string
 func (c Cursor) String() string {
 	return string(c)
 }
+
+type Date struct {
+	Start string `json:"start"`
+	End   string `json:"end"`
+}
+
+type File struct {
+	Name string `json:"name"`
+}

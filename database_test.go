@@ -45,13 +45,13 @@ func TestDatabaseClient(t *testing.T) {
 						},
 					},
 
-					//	Properties: notionapi.Properties{
-					//		"Tags": notionapi.MultiSelectProperty{
+					//	DatabaseProperties: notionapi.DatabaseProperties{
+					//		"Tags": notionapi.DatabaseMultiSelectProperty{
 					//			ID:          ";s|V",
 					//			Type:        notionapi.PropertyTypeMultiSelect,
 					//			MultiSelect: notionapi.Select{Options: []notionapi.Option{{ID: "id", Name: "tag", Color: "Blue"}}},
 					//		},
-					//		"Some another column": notionapi.PeopleProperty{
+					//		"Some another column": notionapi.DatabasePeopleProperty{
 					//			ID:     "rJt\\",
 					//			Type:   notionapi.PropertyTypePeople,
 					//		},

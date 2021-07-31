@@ -85,23 +85,23 @@ func (p NumberProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type SelectProperty struct {
+type DatabaseSelectProperty struct {
 	ID     ObjectID     `json:"id,omitempty"`
 	Type   PropertyType `json:"type"`
 	Select Select       `json:"select"`
 }
 
-func (p SelectProperty) GetType() PropertyType {
+func (p DatabaseSelectProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type SelectOptionProperty struct {
+type PageSelectProperty struct {
 	ID     ObjectID     `json:"id,omitempty"`
 	Type   PropertyType `json:"type"`
 	Select Option       `json:"select"`
 }
 
-func (p SelectOptionProperty) GetType() PropertyType {
+func (p PageSelectProperty) GetType() PropertyType {
 	return p.Type
 }
 
@@ -109,23 +109,23 @@ type Select struct {
 	Options []Option `json:"options"`
 }
 
-type MultiSelectProperty struct {
+type DatabaseMultiSelectProperty struct {
 	ID          ObjectID     `json:"id,omitempty"`
 	Type        PropertyType `json:"type"`
 	MultiSelect Select       `json:"multi_select"`
 }
 
-func (p MultiSelectProperty) GetType() PropertyType {
+func (p DatabaseMultiSelectProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type MultiSelectOptionsProperty struct {
+type PageMultiSelectProperty struct {
 	ID          ObjectID     `json:"id,omitempty"`
 	Type        PropertyType `json:"type"`
 	MultiSelect []Option     `json:"multi_select"`
 }
 
-func (p MultiSelectOptionsProperty) GetType() PropertyType {
+func (p PageMultiSelectProperty) GetType() PropertyType {
 	return p.Type
 }
 
@@ -135,73 +135,144 @@ type Option struct {
 	Color Color      `json:"color,omitempty"`
 }
 
-type DateProperty struct {
+type DatabaseDateProperty struct {
 	ID   ObjectID     `json:"id,omitempty"`
 	Type PropertyType `json:"type"`
-	Date interface{}  `json:"date"`
+	Date struct{}     `json:"date"`
 }
 
-func (p DateProperty) GetType() PropertyType {
+func (p DatabaseDateProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type PeopleProperty struct {
+type PageDateProperty struct {
+	ID   ObjectID     `json:"id,omitempty"`
+	Type PropertyType `json:"type"`
+	Date Date         `json:"date"`
+}
+
+func (p PageDateProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type DatabasePeopleProperty struct {
 	ID     ObjectID     `json:"id,omitempty"`
 	Type   PropertyType `json:"type"`
-	People interface{}  `json:"people"`
+	People struct{}     `json:"people"`
 }
 
-func (p PeopleProperty) GetType() PropertyType {
+func (p DatabasePeopleProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type FileProperty struct {
-	ID   ObjectID     `json:"id,omitempty"`
-	Type PropertyType `json:"type"`
-	File interface{}  `json:"file"`
+//TODO: is this a right property format?
+type PagePeopleProperty struct {
+	ID     ObjectID     `json:"id,omitempty"`
+	Type   PropertyType `json:"type"`
+	People []User       `json:"people"`
 }
 
-func (p FileProperty) GetType() PropertyType {
+func (p PagePeopleProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type CheckboxProperty struct {
+type DatabaseFilesProperty struct {
+	ID    ObjectID     `json:"id,omitempty"`
+	Type  PropertyType `json:"type"`
+	Files struct{}     `json:"files"`
+}
+
+func (p DatabaseFilesProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type PageFilesProperty struct {
+	ID    ObjectID     `json:"id,omitempty"`
+	Type  PropertyType `json:"type"`
+	Files []File       `json:"files"`
+}
+
+func (p PageFilesProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type DatabaseCheckboxProperty struct {
 	ID       ObjectID     `json:"id,omitempty"`
 	Type     PropertyType `json:"type"`
-	Checkbox interface{}  `json:"checkbox"`
+	Checkbox struct{}     `json:"checkbox"`
 }
 
-func (p CheckboxProperty) GetType() PropertyType {
+func (p DatabaseCheckboxProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type URLProperty struct {
+type PageCheckboxProperty struct {
+	ID       ObjectID     `json:"id,omitempty"`
+	Type     PropertyType `json:"type"`
+	Checkbox bool         `json:"checkbox"`
+}
+
+func (p PageCheckboxProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type DatabaseURLProperty struct {
 	ID   ObjectID     `json:"id,omitempty"`
 	Type PropertyType `json:"type"`
-	URL  interface{}  `json:"url"`
+	URL  struct{}     `json:"url"`
 }
 
-func (p URLProperty) GetType() PropertyType {
+func (p DatabaseURLProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type EmailProperty struct {
+type PageURLProperty struct {
+	ID   ObjectID     `json:"id,omitempty"`
+	Type PropertyType `json:"type"`
+	URL  string       `json:"url"`
+}
+
+func (p PageURLProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type DatabaseEmailProperty struct {
 	ID    PropertyID   `json:"id,omitempty"`
 	Type  PropertyType `json:"type"`
-	Email interface{}  `json:"email"`
+	Email struct{}     `json:"email"`
 }
 
-func (p EmailProperty) GetType() PropertyType {
+func (p DatabaseEmailProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type PhoneNumberProperty struct {
-	ID          ObjectID     `json:"id,omitempty"`
-	Type        PropertyType `json:"type"`
-	PhoneNumber interface{}  `json:"phone_number"`
+type PageEmailProperty struct {
+	ID    PropertyID   `json:"id,omitempty"`
+	Type  PropertyType `json:"type"`
+	Email string       `json:"email"`
 }
 
-func (p PhoneNumberProperty) GetType() PropertyType {
+func (p PageEmailProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type DatabasePhoneNumberProperty struct {
+	ID          ObjectID     `json:"id,omitempty"`
+	Type        PropertyType `json:"type"`
+	PhoneNumber struct{}     `json:"phone_number"`
+}
+
+func (p DatabasePhoneNumberProperty) GetType() PropertyType {
+	return p.Type
+}
+
+type PagePhoneNumberProperty struct {
+	ID          ObjectID     `json:"id,omitempty"`
+	Type        PropertyType `json:"type"`
+	PhoneNumber string       `json:"phone_number"`
+}
+
+func (p PagePhoneNumberProperty) GetType() PropertyType {
 	return p.Type
 }
 
@@ -288,14 +359,14 @@ func (p LastEditedByProperty) GetType() PropertyType {
 	return p.Type
 }
 
-type Properties map[string]Property
+type DatabaseProperties map[string]Property
 
-func (p *Properties) UnmarshalJSON(data []byte) error {
+func (p *DatabaseProperties) UnmarshalJSON(data []byte) error {
 	var raw map[string]interface{}
 	if err := json.Unmarshal(data, &raw); err != nil {
 		return err
 	}
-	props, err := parseProperties(raw)
+	props, err := parseDatabaseProperties(raw)
 	if err != nil {
 		return err
 	}
@@ -304,7 +375,7 @@ func (p *Properties) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func parseProperties(raw map[string]interface{}) (map[string]Property, error) {
+func parseDatabaseProperties(raw map[string]interface{}) (map[string]Property, error) {
 	result := make(map[string]Property)
 	for k, v := range raw {
 		var p Property
@@ -312,12 +383,7 @@ func parseProperties(raw map[string]interface{}) (map[string]Property, error) {
 		case map[string]interface{}:
 			switch PropertyType(rawProperty["type"].(string)) {
 			case PropertyTypeTitle:
-				switch v.(map[string]interface{})["title"].(type) {
-				case map[string]interface{}:
-					p = &DatabaseTitleProperty{}
-				default:
-					p = &PageTitleProperty{}
-				}
+				p = &DatabaseTitleProperty{}
 			case PropertyTypeRichText:
 				switch v.(map[string]interface{})["rich_text"].(type) {
 				case map[string]interface{}:
@@ -326,45 +392,118 @@ func parseProperties(raw map[string]interface{}) (map[string]Property, error) {
 					p = &RichTextProperty{}
 				}
 			case PropertyTypeSelect:
-				selectMap, ok := v.(map[string]interface{})["select"].(map[string]interface{})
-				if !ok {
-					return nil, errors.Errorf("an error occured while parsing property type: %s", rawProperty)
-				}
-				_, found := selectMap["options"]
-				if found {
-					p = &SelectProperty{}
-				} else {
-					p = &SelectOptionProperty{}
-				}
+				p = &DatabaseSelectProperty{}
 			case PropertyTypeMultiSelect:
-				switch v.(map[string]interface{})["multi_select"].(type) {
-				case map[string]interface{}:
-					p = &MultiSelectProperty{}
-				default:
-					p = &MultiSelectOptionsProperty{}
-				}
+				p = &DatabaseMultiSelectProperty{}
 			case PropertyTypeNumber:
 				p = &NumberProperty{}
 			case PropertyTypeCheckbox:
-				p = &CheckboxProperty{}
+				p = &DatabaseCheckboxProperty{}
 			case PropertyTypeEmail:
-				p = &EmailProperty{}
+				p = &DatabaseEmailProperty{}
 			case PropertyTypeURL:
-				p = &URLProperty{}
+				p = &DatabaseURLProperty{}
 			case PropertyTypeFile:
-				p = &FileProperty{}
+				p = &DatabaseFilesProperty{}
 			case PropertyTypePhoneNumber:
-				p = PhoneNumberProperty{}
+				p = DatabasePhoneNumberProperty{}
 			case PropertyTypeFormula:
 				p = &FormulaProperty{}
 			case PropertyTypeDate:
-				p = &DateProperty{}
+				p = &DatabaseDateProperty{}
 			case PropertyTypeRelation:
 				p = &RelationProperty{}
 			case PropertyTypeRollup:
 				p = &RollupProperty{}
 			case PropertyTypePeople:
-				p = &PeopleProperty{}
+				p = &DatabasePeopleProperty{}
+			case PropertyTypeCreatedTime:
+				p = &CreatedTimeProperty{}
+			case PropertyTypeCreatedBy:
+				p = &CreatedByProperty{}
+			case PropertyTypeLastEditedTime:
+				p = &LastEditedTimeProperty{}
+			case PropertyTypeLastEditedBy:
+				p = &LastEditedByProperty{}
+			default:
+				return nil, errors.New(fmt.Sprintf("unsupported property type: %s", rawProperty["type"].(string)))
+			}
+			b, err := json.Marshal(rawProperty)
+			if err != nil {
+				return nil, err
+			}
+
+			if err = json.Unmarshal(b, &p); err != nil {
+				return nil, err
+			}
+
+			result[k] = p
+		default:
+			return nil, errors.New(fmt.Sprintf("unsupported property format %T", v))
+		}
+	}
+
+	return result, nil
+}
+
+type PageProperties map[string]Property
+
+func (p *PageProperties) UnmarshalJSON(data []byte) error {
+	var raw map[string]interface{}
+	if err := json.Unmarshal(data, &raw); err != nil {
+		return err
+	}
+	props, err := parsePageProperties(raw)
+	if err != nil {
+		return err
+	}
+
+	*p = props
+	return nil
+}
+
+func parsePageProperties(raw map[string]interface{}) (map[string]Property, error) {
+	result := make(map[string]Property)
+	for k, v := range raw {
+		var p Property
+		switch rawProperty := v.(type) {
+		case map[string]interface{}:
+			switch PropertyType(rawProperty["type"].(string)) {
+			case PropertyTypeTitle:
+				p = &PageTitleProperty{}
+			case PropertyTypeRichText:
+				switch v.(map[string]interface{})["rich_text"].(type) {
+				case map[string]interface{}:
+					p = &EmptyRichTextProperty{}
+				default:
+					p = &RichTextProperty{}
+				}
+			case PropertyTypeSelect:
+				p = &PageSelectProperty{}
+			case PropertyTypeMultiSelect:
+				p = &PageMultiSelectProperty{}
+			case PropertyTypeNumber:
+				p = &NumberProperty{}
+			case PropertyTypeCheckbox:
+				p = &PageCheckboxProperty{}
+			case PropertyTypeEmail:
+				p = &PageEmailProperty{}
+			case PropertyTypeURL:
+				p = &PageURLProperty{}
+			case PropertyTypeFile:
+				p = &PageFilesProperty{}
+			case PropertyTypePhoneNumber:
+				p = PagePhoneNumberProperty{}
+			case PropertyTypeFormula:
+				p = &FormulaProperty{}
+			case PropertyTypeDate:
+				p = &PageDateProperty{}
+			case PropertyTypeRelation:
+				p = &RelationProperty{}
+			case PropertyTypeRollup:
+				p = &RollupProperty{}
+			case PropertyTypePeople:
+				p = &PagePeopleProperty{}
 			case PropertyTypeCreatedTime:
 				p = &CreatedTimeProperty{}
 			case PropertyTypeCreatedBy:

@@ -164,3 +164,5 @@ const (
 	BlockTypeChildPage   BlockType = "child_page"
 	BlockTypeUnsupported BlockType = "unsupported"
 )
+
+const DateFormat = "2006-01-02"
