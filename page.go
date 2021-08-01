@@ -45,7 +45,7 @@ func (pc *PageClient) Create(ctx context.Context, requestBody *PageCreateRequest
 }
 
 type PageUpdateRequest struct {
-	Properties PageProperties `json:"properties"`
+	Properties Properties `json:"properties"`
 }
 
 // Update https://developers.notion.com/reference/patch-page
@@ -59,14 +59,14 @@ func (pc *PageClient) Update(ctx context.Context, id PageID, request *PageUpdate
 }
 
 type Page struct {
-	Object         ObjectType     `json:"object"`
-	ID             ObjectID       `json:"id"`
-	CreatedTime    time.Time      `json:"created_time"`
-	LastEditedTime time.Time      `json:"last_edited_time"`
-	Archived       bool           `json:"archived"`
-	Properties     PageProperties `json:"properties"`
-	Parent         Parent         `json:"parent"`
-	URL            string         `json:"url"`
+	Object         ObjectType `json:"object"`
+	ID             ObjectID   `json:"id"`
+	CreatedTime    time.Time  `json:"created_time"`
+	LastEditedTime time.Time  `json:"last_edited_time"`
+	Archived       bool       `json:"archived"`
+	Properties     Properties `json:"properties"`
+	Parent         Parent     `json:"parent"`
+	URL            string     `json:"url"`
 }
 
 func (p *Page) GetObject() ObjectType {
@@ -82,9 +82,9 @@ type Parent struct {
 }
 
 type PageCreateRequest struct {
-	Parent     Parent         `json:"parent"`
-	Properties PageProperties `json:"properties"`
-	Children   []Block        `json:"children,omitempty"`
+	Parent     Parent     `json:"parent"`
+	Properties Properties `json:"properties"`
+	Children   []Block    `json:"children,omitempty"`
 }
 
 func handlePageResponse(res *http.Response) (*Page, error) {

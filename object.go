@@ -44,12 +44,6 @@ type Annotations struct {
 	Color         Color `json:"color"`
 }
 
-type Paragraph []RichText
-
-type FormulaObject struct {
-	Value string `json:"value"`
-}
-
 type RelationObject struct {
 	Database           DatabaseID `json:"database"`
 	SyncedPropertyName string     `json:"synced_property_name"`
@@ -67,11 +61,12 @@ func (c Cursor) String() string {
 	return string(c)
 }
 
-type Date struct {
-	Start string `json:"start"`
-	End   string `json:"end"`
-}
-
 type File struct {
 	Name string `json:"name"`
+}
+
+type PropertyID string
+
+func (pID PropertyID) String() string {
+	return string(pID)
 }

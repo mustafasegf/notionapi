@@ -73,12 +73,12 @@ func (dc *DatabaseClient) Query(ctx context.Context, id DatabaseID, requestBody 
 }
 
 type Database struct {
-	Object         ObjectType         `json:"object"`
-	ID             ObjectID           `json:"id"`
-	CreatedTime    time.Time          `json:"created_time"`
-	LastEditedTime time.Time          `json:"last_edited_time"`
-	Title          Paragraph          `json:"title"`
-	Properties     DatabaseProperties `json:"properties"`
+	Object         ObjectType      `json:"object"`
+	ID             ObjectID        `json:"id"`
+	CreatedTime    time.Time       `json:"created_time"`
+	LastEditedTime time.Time       `json:"last_edited_time"`
+	Title          []RichText      `json:"title"`
+	Properties     PropertyConfigs `json:"properties"`
 }
 
 func (db *Database) GetObject() ObjectType {

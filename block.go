@@ -95,8 +95,8 @@ type ParagraphBlock struct {
 	LastEditedTime *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren    bool       `json:"has_children,omitempty"`
 	Paragraph      struct {
-		Text     Paragraph `json:"text"`
-		Children []Block   `json:"children"`
+		Text     []RichText `json:"text"`
+		Children []Block    `json:"children"`
 	} `json:"paragraph"`
 }
 
@@ -112,7 +112,7 @@ type Heading1Block struct {
 	LastEditedTime *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren    bool       `json:"has_children,omitempty"`
 	Heading1       struct {
-		Text Paragraph `json:"text"`
+		Text []RichText `json:"text"`
 	} `json:"heading_1"`
 }
 
@@ -128,7 +128,7 @@ type Heading2Block struct {
 	LastEditedTime *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren    bool       `json:"has_children,omitempty"`
 	Heading2       struct {
-		Text Paragraph `json:"text"`
+		Text []RichText `json:"text"`
 	} `json:"heading_2"`
 }
 
@@ -144,7 +144,7 @@ type Heading3Block struct {
 	LastEditedTime *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren    bool       `json:"has_children,omitempty"`
 	Heading3       struct {
-		Text Paragraph `json:"text"`
+		Text []RichText `json:"text"`
 	} `json:"heading_3"`
 }
 
@@ -160,8 +160,8 @@ type BulletedListItemBlock struct {
 	LastEditedTime   *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren      bool       `json:"has_children,omitempty"`
 	BulletedListItem struct {
-		Text     Paragraph `json:"text"`
-		Children []Block   `json:"children"`
+		Text     []RichText `json:"text"`
+		Children []Block    `json:"children"`
 	} `json:"bulleted_list_item"`
 }
 
@@ -177,8 +177,8 @@ type NumberedListItemBlock struct {
 	LastEditedTime   *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren      bool       `json:"has_children,omitempty"`
 	NumberedListItem struct {
-		Text     Paragraph `json:"text"`
-		Children []Block   `json:"children"`
+		Text     []RichText `json:"text"`
+		Children []Block    `json:"children"`
 	} `json:"numbered_list_item"`
 }
 
@@ -194,9 +194,9 @@ type ToDoBlock struct {
 	LastEditedTime *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren    bool       `json:"has_children"`
 	ToDo           struct {
-		Text     Paragraph `json:"text"`
-		Children []Block   `json:"children"`
-		Checked  bool      `json:"checked"`
+		Text     []RichText `json:"text"`
+		Children []Block    `json:"children"`
+		Checked  bool       `json:"checked"`
 	} `json:"to_do"`
 }
 
@@ -211,11 +211,11 @@ type ToggleBlock struct {
 	CreatedTime    *time.Time `json:"created_time,omitempty"`
 	LastEditedTime *time.Time `json:"last_edited_time,omitempty"`
 	HasChildren    bool       `json:"has_children,omitempty"`
-	Text           Paragraph  `json:"text"`
+	Text           []RichText `json:"text"`
 	Children       []Block    `json:"children"`
 	Toggle         struct {
-		Text     Paragraph `json:"text"`
-		Children []Block   `json:"children"`
+		Text     []RichText `json:"text"`
+		Children []Block    `json:"children"`
 	} `json:"toggle"`
 }
 

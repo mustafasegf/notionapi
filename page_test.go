@@ -104,9 +104,9 @@ func TestPageClient(t *testing.T) {
 						Type:       notionapi.ParentTypeDatabaseID,
 						DatabaseID: "f830be5eff534859932e5b81542b3c7b",
 					},
-					Properties: notionapi.PageProperties{
-						"Name": notionapi.PageTitleProperty{
-							Title: notionapi.Paragraph{
+					Properties: notionapi.Properties{
+						"Name": notionapi.TitleProperty{
+							Title: []notionapi.RichText{
 								{Text: notionapi.Text{Content: "hello"}},
 							},
 						},
@@ -162,10 +162,10 @@ func TestPageClient(t *testing.T) {
 				filePath:   "testdata/page_update.json",
 				statusCode: http.StatusOK,
 				request: &notionapi.PageUpdateRequest{
-					Properties: notionapi.PageProperties{
+					Properties: notionapi.Properties{
 						"SomeColumn": notionapi.RichTextProperty{
 							Type: notionapi.PropertyTypeRichText,
-							RichText: notionapi.Paragraph{
+							RichText: []notionapi.RichText{
 								{
 									Type: notionapi.ObjectTypeText,
 									Text: notionapi.Text{Content: "patch"},
