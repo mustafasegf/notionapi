@@ -73,12 +73,13 @@ func (dc *DatabaseClient) Query(ctx context.Context, id DatabaseID, requestBody 
 }
 
 type Database struct {
-	Object         ObjectType      `json:"object"`
-	ID             ObjectID        `json:"id"`
-	CreatedTime    time.Time       `json:"created_time"`
-	LastEditedTime time.Time       `json:"last_edited_time"`
-	Title          []RichText      `json:"title"`
-	Properties     PropertyConfigs `json:"properties"`
+	Object         ObjectType `json:"object"`
+	ID             ObjectID   `json:"id"`
+	CreatedTime    time.Time  `json:"created_time"`
+	LastEditedTime time.Time  `json:"last_edited_time"`
+	Title          []RichText `json:"title"`
+	// Properties is a map of property configurations that defines what Page.Properties each page of the database can use
+	Properties PropertyConfigs `json:"properties"`
 }
 
 func (db *Database) GetObject() ObjectType {
