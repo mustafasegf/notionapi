@@ -37,7 +37,7 @@ func (p RichTextProperty) GetType() PropertyType {
 type NumberProperty struct {
 	ID     PropertyID   `json:"id,omitempty"`
 	Type   PropertyType `json:"type,omitempty"`
-	Number int          `json:"number"`
+	Number float64      `json:"number"`
 }
 
 func (p NumberProperty) GetType() PropertyType {
@@ -96,7 +96,7 @@ type FormulaType string
 type Formula struct {
 	Type    FormulaType `json:"type,omitempty"`
 	String  string      `json:"string,omitempty"`
-	Number  int         `json:"number,omitempty"`
+	Number  float64     `json:"number,omitempty"`
 	Boolean bool        `json:"boolean,omitempty"`
 	Date    *Date       `json:"date,omitempty"`
 }
@@ -129,7 +129,7 @@ type RollupType string
 
 type Rollup struct {
 	Type   RollupType `json:"type,omitempty"`
-	Number int        `json:"number,omitempty"`
+	Number float64    `json:"number,omitempty"`
 	Date   *Date      `json:"date,omitempty"`
 	Array  []Property `json:"array,omitempty"` //todo: unmarshal
 }
