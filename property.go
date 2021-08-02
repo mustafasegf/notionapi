@@ -108,7 +108,11 @@ func (p FormulaProperty) GetType() PropertyType {
 type RelationProperty struct {
 	ID       ObjectID     `json:"id,omitempty"`
 	Type     PropertyType `json:"type"`
-	Relation []PageID     `json:"relation"`
+	Relation []Relation   `json:"relation"`
+}
+
+type Relation struct {
+	ID PageID `json:"id"`
 }
 
 func (p RelationProperty) GetType() PropertyType {
